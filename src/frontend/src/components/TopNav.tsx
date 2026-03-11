@@ -44,8 +44,8 @@ export function TopNav({ onNavigate, tools }: TopNavProps) {
             className="flex items-center gap-2 font-display text-xl font-black tracking-tight"
             data-ocid="nav.home_link"
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-crimson to-crimson-dark shadow-crimson-sm overflow-hidden animate-sweep ring-1 ring-crimson/20">
-              <FileText className="h-5 w-5 text-background" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-ruby to-ruby-dark shadow-ruby-sm overflow-hidden animate-sweep ring-1 ring-ruby/20">
+              <FileText className="h-5 w-5 text-white" />
             </div>
             <span className="text-foreground -ml-0.5">
               Ind<span className="text-luxury-gradient">PDF</span>
@@ -72,7 +72,7 @@ export function TopNav({ onNavigate, tools }: TopNavProps) {
 
                 {activeDropdown === cat && (
                   <div className="absolute left-0 top-full mt-2 w-64 rounded-2xl border border-border/40 bg-popover/95 p-4 shadow-2xl backdrop-blur-xl animate-scale-in">
-                    <p className="mb-3 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-crimson/70">
+                    <p className="mb-3 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-ruby/70">
                       <span>{ICON_MAP[cat]}</span> {cat}
                     </p>
                     <div className="space-y-0.5">
@@ -84,11 +84,11 @@ export function TopNav({ onNavigate, tools }: TopNavProps) {
                             onNavigate("tool", tool.slug);
                             setActiveDropdown(null);
                           }}
-                          className="w-full rounded-xl px-4 py-2.5 text-left text-sm text-muted-foreground transition-all hover:bg-crimson/5 hover:text-foreground"
+                          className="w-full rounded-xl px-4 py-2.5 text-left text-sm text-muted-foreground transition-all hover:bg-ruby/5 hover:text-ruby-dark"
                         >
                           {tool.name}
                           {tool.tier === "premium" && (
-                            <span className="ml-2 rounded-full bg-crimson/10 px-2 py-0.5 text-[9px] font-bold text-crimson uppercase tracking-tighter">
+                            <span className="ml-2 rounded-full bg-ruby/10 px-2 py-0.5 text-[9px] font-bold text-ruby uppercase tracking-tighter">
                               PRO
                             </span>
                           )}
@@ -100,7 +100,7 @@ export function TopNav({ onNavigate, tools }: TopNavProps) {
                           onNavigate("home");
                           setActiveDropdown(null);
                         }}
-                        className="w-full rounded-xl px-4 py-2.5 text-left text-[11px] font-bold uppercase tracking-widest text-crimson/70 transition hover:text-crimson hover:bg-crimson/5"
+                        className="w-full rounded-xl px-4 py-2.5 text-left text-[11px] font-bold uppercase tracking-widest text-ruby/70 transition hover:text-ruby hover:bg-ruby/5"
                       >
                         View all tools →
                       </button>
@@ -124,7 +124,7 @@ export function TopNav({ onNavigate, tools }: TopNavProps) {
 
             {isTrialing ? (
               <div className="hidden items-center gap-2 md:flex">
-                <Badge className="gap-1.5 border-crimson/30 bg-crimson/5 text-crimson font-bold uppercase text-[10px] tracking-wider px-3 py-1">
+                <Badge className="gap-1.5 border-ruby/30 bg-ruby/5 text-ruby font-bold uppercase text-[10px] tracking-wider px-3 py-1">
                   <Crown className="h-3 w-3" /> Trial: {daysLeftInTrial} day
                   {daysLeftInTrial !== 1 ? "s" : ""} left
                 </Badge>
@@ -139,7 +139,7 @@ export function TopNav({ onNavigate, tools }: TopNavProps) {
               </div>
             ) : isPremium ? (
               <div className="hidden items-center gap-2 md:flex">
-                <Badge className="gap-1.5 border-crimson/30 bg-crimson/5 text-crimson font-bold uppercase text-[10px] tracking-wider px-3 py-1">
+                <Badge className="gap-1.5 border-ruby/30 bg-ruby/5 text-ruby font-bold uppercase text-[10px] tracking-wider px-3 py-1">
                   <Sparkles className="h-3 w-3" /> Premium ✦
                 </Badge>
               </div>
@@ -150,7 +150,7 @@ export function TopNav({ onNavigate, tools }: TopNavProps) {
                 variant="outline"
                 size="sm"
                 onClick={() => setTrialModalOpen(true)}
-                className="hidden rounded-full border-crimson/30 bg-crimson/5 px-5 text-[11px] font-bold uppercase tracking-widest text-crimson transition-all hover:bg-crimson/10 hover:border-crimson/50 md:flex h-10"
+                className="hidden rounded-full border-ruby/30 bg-ruby/5 px-5 text-[11px] font-bold uppercase tracking-widest text-ruby transition-all hover:bg-ruby/10 hover:border-ruby/50 md:flex h-10"
               >
                 <Sparkles className="mr-2 h-3.5 w-3.5" />
                 Start Trial
@@ -161,13 +161,13 @@ export function TopNav({ onNavigate, tools }: TopNavProps) {
               type="button"
               data-ocid="nav.go_premium_button"
               onClick={() => onNavigate("pricing")}
-              className="rounded-full bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light px-6 py-2 h-10 text-[11px] font-bold uppercase tracking-widest text-background shadow-crimson transition-all hover:scale-105 hover:shadow-crimson-sm"
+              className="rounded-full bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light px-6 py-2 h-10 text-[11px] font-bold uppercase tracking-widest text-white shadow-ruby transition-all hover:scale-105 hover:shadow-ruby-sm"
             >
               Membership
             </Button>
             <button
               type="button"
-              className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary/50 text-muted-foreground transition hover:bg-crimson/10 hover:text-crimson md:hidden"
+              className="flex h-10 w-10 items-center justify-center rounded-xl bg-secondary/50 text-muted-foreground transition hover:bg-ruby/10 hover:text-ruby md:hidden"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
@@ -186,7 +186,7 @@ export function TopNav({ onNavigate, tools }: TopNavProps) {
             <div className="space-y-6 pt-6">
               {navCategories.map((cat, i) => (
                 <div key={cat} className="space-y-3">
-                  <p className="px-1 text-[10px] font-bold uppercase tracking-[0.3em] text-crimson">
+                  <p className="px-1 text-[10px] font-bold uppercase tracking-[0.3em] text-ruby">
                     {cat}
                   </p>
                   <div className="grid grid-cols-2 gap-2">
@@ -198,11 +198,11 @@ export function TopNav({ onNavigate, tools }: TopNavProps) {
                           onNavigate("tool", tool.slug);
                           setMobileOpen(false);
                         }}
-                        className="flex flex-col rounded-xl border border-border/30 bg-card/50 px-4 py-3 text-left transition hover:border-crimson/30 hover:bg-crimson/5"
+                        className="flex flex-col rounded-xl border border-border/30 bg-card/50 px-4 py-3 text-left transition hover:border-ruby/30 hover:bg-ruby/5"
                       >
                         <span className="text-sm font-medium text-foreground">{tool.name}</span>
                         {tool.tier === "premium" && (
-                          <span className="mt-0.5 text-[9px] font-black text-crimson uppercase tracking-tighter">PRO</span>
+                          <span className="mt-0.5 text-[9px] font-black text-ruby uppercase tracking-tighter">PRO</span>
                         )}
                       </button>
                     ))}
@@ -219,7 +219,7 @@ export function TopNav({ onNavigate, tools }: TopNavProps) {
                       setTrialModalOpen(true);
                       setMobileOpen(false);
                     }}
-                    className="w-full rounded-2xl border-crimson/20 bg-crimson/5 font-black uppercase tracking-[0.2em] text-crimson py-7"
+                    className="w-full rounded-2xl border-ruby/20 bg-ruby/5 font-black uppercase tracking-[0.2em] text-ruby py-7"
                   >
                     <Sparkles className="mr-2 h-4 w-4" />
                     Start Free Trial
@@ -231,7 +231,7 @@ export function TopNav({ onNavigate, tools }: TopNavProps) {
                     onNavigate("pricing");
                     setMobileOpen(false);
                   }}
-                  className="w-full rounded-2xl bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light font-black uppercase tracking-[0.2em] text-background py-7 shadow-crimson"
+                  className="w-full rounded-2xl bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light font-black uppercase tracking-[0.2em] text-white py-7 shadow-ruby"
                 >
                   Membership Hub
                 </Button>

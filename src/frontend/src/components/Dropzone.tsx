@@ -76,11 +76,10 @@ export function Dropzone({
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         aria-label="File drop zone"
-        className={`relative flex min-h-48 flex-col items-center justify-center rounded-2xl border-2 border-dashed p-8 text-center transition duration-300 ${
-          isDragging
-            ? "scale-[1.02] border-gold bg-gold/5 shadow-gold"
-            : "border-border/60 bg-card/50"
-        }`}
+        className={`relative flex min-h-48 flex-col items-center justify-center rounded-2xl border-2 border-dashed p-8 text-center transition duration-300 ${isDragging
+            ? "scale-[1.02] border-ruby bg-ruby/5 shadow-ruby"
+            : "border-border/60 bg-white/50"
+          }`}
       >
         <input
           ref={inputRef}
@@ -92,12 +91,11 @@ export function Dropzone({
         />
 
         <div
-          className={`mb-4 flex h-16 w-16 items-center justify-center rounded-2xl transition duration-300 ${
-            isDragging ? "bg-gold/20" : "bg-secondary/60"
-          }`}
+          className={`mb-4 flex h-16 w-16 items-center justify-center rounded-2xl transition duration-300 ${isDragging ? "bg-ruby/20" : "bg-ruby/5"
+            }`}
         >
           <Upload
-            className={`h-7 w-7 transition duration-300 ${isDragging ? "text-gold" : "text-muted-foreground"}`}
+            className={`h-7 w-7 transition duration-300 ${isDragging ? "text-ruby" : "text-ruby/40"}`}
           />
         </div>
 
@@ -115,7 +113,7 @@ export function Dropzone({
           data-ocid="tool.upload_button"
           type="button"
           variant="outline"
-          className="border-gold/30 bg-gold/5 text-gold hover:bg-gold/10 hover:text-gold"
+          className="border-ruby/30 bg-ruby/5 text-ruby hover:bg-ruby/10 hover:text-ruby"
           onClick={() => inputRef.current?.click()}
         >
           <Upload className="mr-2 h-4 w-4" />
@@ -139,8 +137,8 @@ export function Dropzone({
               key={f.id}
               className="flex items-center gap-3 rounded-lg border border-border/50 bg-card px-4 py-3"
             >
-              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-gold/10">
-                <FileText className="h-4 w-4 text-gold" />
+              <div className="flex h-8 w-8 items-center justify-center rounded-md bg-ruby/10">
+                <FileText className="h-4 w-4 text-ruby" />
               </div>
               <div className="min-w-0 flex-1">
                 <p className="truncate text-sm font-medium text-foreground">

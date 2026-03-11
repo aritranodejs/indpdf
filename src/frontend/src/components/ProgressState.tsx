@@ -72,14 +72,14 @@ export function ProgressState({
     return (
       <div
         data-ocid="tool.success_state"
-        className="relative overflow-hidden rounded-2xl border border-gold/20 bg-gradient-to-br from-gold/10 to-gold/5 p-8 text-center"
+        className="relative overflow-hidden rounded-2xl border border-ruby/20 bg-ruby/5 p-8 text-center"
       >
-        {/* Gold particles */}
+        {/* Ruby particles */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           {PARTICLES.map((p) => (
             <div
               key={p.id}
-              className="absolute bottom-0 rounded-full bg-gold"
+              className="absolute bottom-0 rounded-full bg-ruby"
               style={
                 {
                   left: `calc(50% + ${p.x}px)`,
@@ -94,8 +94,8 @@ export function ProgressState({
         </div>
 
         <div className="relative z-10">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gold/20">
-            <CheckCircle2 className="h-8 w-8 text-gold" />
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-ruby/20">
+            <CheckCircle2 className="h-8 w-8 text-ruby" />
           </div>
           <h3 className="mb-2 font-display text-xl font-bold text-foreground">
             {toolName} Complete!
@@ -107,7 +107,7 @@ export function ProgressState({
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <Button
               data-ocid="tool.primary_button"
-              className="gap-2 bg-gradient-to-r from-gold-dark via-gold to-gold-light px-6 font-bold text-background shadow-gold-sm hover:shadow-gold"
+              className="gap-2 bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light px-6 font-bold text-white shadow-ruby-sm hover:shadow-ruby"
               onClick={() => {
                 if (downloadBlob) {
                   const url = URL.createObjectURL(downloadBlob);
@@ -167,8 +167,8 @@ export function ProgressState({
       data-ocid="tool.loading_state"
       className="rounded-2xl border border-border/60 bg-card p-8 text-center"
     >
-      <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gold/10">
-        <Sparkles className="h-8 w-8 animate-pulse text-gold" />
+      <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-ruby/10">
+        <Sparkles className="h-8 w-8 animate-pulse text-ruby" />
       </div>
       <h3 className="mb-2 font-display text-lg font-bold text-foreground">
         {MESSAGES[state]}
@@ -183,7 +183,7 @@ export function ProgressState({
         </div>
         <Progress
           value={displayProgress}
-          className="h-2 bg-secondary [&>div]:bg-gradient-to-r [&>div]:from-gold-dark [&>div]:to-gold"
+          className="h-2 bg-secondary [&>div]:bg-gradient-to-r [&>div]:from-ruby-dark [&>div]:to-ruby"
         />
       </div>
     </div>

@@ -20,11 +20,17 @@ export default {
         body: ['General Sans', 'system-ui', 'sans-serif'],
       },
       colors: {
-        crimson: {
+        ruby: {
           DEFAULT: "oklch(var(--primary) / <alpha-value>)",
           foreground: "oklch(var(--primary-foreground))",
-          light: "oklch(0.75 0.15 30 / <alpha-value>)",
-          dark: "oklch(0.50 0.20 20 / <alpha-value>)",
+          light: "oklch(0.65 0.25 25 / <alpha-value>)",
+          dark: "oklch(0.45 0.25 20 / <alpha-value>)",
+        },
+        crimson: {
+          DEFAULT: "oklch(0.55 0.22 25 / <alpha-value>)",
+          foreground: "oklch(0.98 0.01 260)",
+          light: "oklch(0.70 0.15 30 / <alpha-value>)",
+          dark: "oklch(0.45 0.20 20 / <alpha-value>)",
         },
         border: "oklch(var(--border))",
         input: "oklch(var(--input))",
@@ -84,10 +90,10 @@ export default {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgba(0,0,0,0.05)",
-        "crimson-sm": "0 0 25px -5px oklch(0.72 0.24 25 / 0.4)",
-        crimson: "0 0 50px -10px oklch(0.72 0.24 25 / 0.3)",
+        "ruby-sm": "0 0 25px -5px oklch(0.55 0.22 25 / 0.15)",
+        ruby: "0 0 50px -10px oklch(0.55 0.22 25 / 0.1)",
         "card-hover":
-          "0 30px 60px -12px oklch(0 0 0 / 0.7), 0 0 30px oklch(0.72 0.24 25 / 0.25)",
+          "0 30px 60px -12px rgba(209, 0, 52, 0.08), 0 0 30px oklch(0.55 0.22 25 / 0.05)",
       },
       keyframes: {
         "accordion-down": {

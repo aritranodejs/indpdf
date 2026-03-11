@@ -36,8 +36,8 @@ export function Footer({ onNavigate }: FooterProps) {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="mb-6 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-crimson to-crimson-dark shadow-crimson-sm overflow-hidden animate-sweep">
-                <FileText className="h-5 w-5 text-background" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-ruby to-ruby-dark shadow-ruby-sm overflow-hidden animate-sweep">
+                <FileText className="h-5 w-5 text-white" />
               </div>
               <span className="font-display text-2xl font-black tracking-tight">
                 Ind<span className="text-luxury-gradient">PDF</span>
@@ -51,7 +51,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
           {/* Popular Tools */}
           <div>
-            <h3 className="mb-6 text-[11px] font-bold uppercase tracking-[0.2em] text-crimson/70">
+            <h3 className="mb-6 text-[11px] font-bold uppercase tracking-[0.2em] text-ruby/70">
               Popular Tools
             </h3>
             <ul className="space-y-2">
@@ -72,7 +72,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
           {/* Company */}
           <div>
-            <h3 className="mb-6 text-[11px] font-bold uppercase tracking-[0.2em] text-crimson/70">
+            <h3 className="mb-6 text-[11px] font-bold uppercase tracking-[0.2em] text-ruby/70">
               Company
             </h3>
             <ul className="space-y-2">
@@ -103,7 +103,7 @@ export function Footer({ onNavigate }: FooterProps) {
 
           {/* Legal */}
           <div>
-            <h3 className="mb-6 text-[11px] font-bold uppercase tracking-[0.2em] text-crimson/70">
+            <h3 className="mb-6 text-[11px] font-bold uppercase tracking-[0.2em] text-ruby/70">
               Legal
             </h3>
             <ul className="space-y-2">
@@ -125,7 +125,7 @@ export function Footer({ onNavigate }: FooterProps) {
         <div className="flex flex-col items-center justify-between gap-4 border-t border-border/40 pt-6 text-xs text-muted-foreground md:flex-row">
           <p>© {year} IndPDF. All rights reserved.</p>
           <p className="font-medium tracking-wide">
-            Made with love by <span className="text-crimson font-bold">Aritra Dutta</span>
+            Made By <span className="text-ruby font-bold">Aritra Dutta</span>
           </p>
           <p className="max-w-[300px] text-center md:text-right">
             All PDF processing happens in your browser for absolute privacy.

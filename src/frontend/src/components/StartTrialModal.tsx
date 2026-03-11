@@ -8,7 +8,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { Elements, PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import { Check, Crown, Lock } from "lucide-react";
+import {
+  Check,
+  Crown,
+  Lock,
+  Sparkles,
+  X,
+} from "lucide-react";
 import { useState } from "react";
 import { usePremium } from "../context/PremiumContext";
 
@@ -82,7 +88,7 @@ function CheckoutForm({
       <Button
         type="submit"
         disabled={!stripe || isLoading}
-        className="w-full rounded-xl bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light py-7 text-sm font-black uppercase tracking-[0.2em] text-background shadow-crimson transition-all hover:shadow-crimson-sm disabled:opacity-50"
+        className="w-full rounded-xl bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light py-7 text-sm font-black uppercase tracking-[0.2em] text-white shadow-ruby transition-all hover:shadow-ruby-sm disabled:opacity-50"
       >
         {isLoading ? "Processing..." : "Start 7-Day Free Trial"}
       </Button>
@@ -131,13 +137,13 @@ export function StartTrialModal({
     <Dialog open={open} onOpenChange={(v) => !v && handleClose()}>
       <DialogContent
         data-ocid="trial.dialog"
-        className="max-w-md max-h-[90vh] overflow-y-auto border-crimson/20 bg-card p-0 text-foreground shadow-crimson-sm"
+        className="max-w-md max-h-[90vh] overflow-y-auto border-ruby/20 bg-card p-0 text-foreground shadow-ruby-sm"
       >
-        <div className="rounded-t-lg bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light px-6 py-5">
+        <div className="rounded-t-lg bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light px-6 py-5">
           <DialogHeader>
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-background/20">
-                <Crown className="h-5 w-5 text-background" />
+              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-ruby/10 shadow-ruby-sm">
+                <Sparkles className="h-6 w-6 text-ruby" />
               </div>
               <div>
                 <DialogTitle className="text-lg font-black text-background">
@@ -151,19 +157,19 @@ export function StartTrialModal({
           </DialogHeader>
         </div>
 
-        <div className="space-y-5 px-6 pb-6 pt-5">
+        <div className="relative space-y-5 px-6 pb-6 pt-5">
           {!clientSecret ? (
             <>
-              <div className="rounded-xl border border-crimson/20 bg-crimson/5 p-4 space-y-2">
+              <div className="rounded-xl border border-ruby/30 bg-ruby/10 p-4 space-y-2">
                 <div className="flex items-center gap-2.5">
-                  <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-crimson/20">
-                    <Check className="h-2.5 w-2.5 text-crimson" />
+                  <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-ruby/30">
+                    <Check className="h-2.5 w-2.5 text-ruby" />
                   </div>
                   <span className="text-xs text-muted-foreground">7 days completely free</span>
                 </div>
                 <div className="flex items-center gap-2.5">
-                  <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-crimson/20">
-                    <Check className="h-2.5 w-2.5 text-crimson" />
+                  <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-ruby/30">
+                    <Check className="h-2.5 w-2.5 text-ruby" />
                   </div>
                   <span className="text-xs text-muted-foreground">Full access to all premium tools</span>
                 </div>
@@ -185,7 +191,7 @@ export function StartTrialModal({
                     setEmail(e.target.value);
                     setEmailError("");
                   }}
-                  className="border-border/60 bg-background/50 focus-visible:border-crimson/40 focus-visible:ring-crimson/20"
+                  className="border-border/60 bg-background/50 focus-visible:border-ruby/40 focus-visible:ring-ruby/20"
                 />
                 {emailError && (
                   <p className="text-xs text-destructive">{emailError}</p>
@@ -194,7 +200,7 @@ export function StartTrialModal({
 
               <Button
                 type="button"
-                className="w-full rounded-xl bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light py-7 text-sm font-black uppercase tracking-[0.2em] text-background shadow-crimson transition-all hover:shadow-crimson-sm disabled:opacity-50"
+                className="mt-6 w-full rounded-2xl bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light py-7 text-sm font-bold uppercase tracking-widest text-white shadow-ruby transition-all hover:scale-[1.02] hover:shadow-ruby-sm disabled:opacity-50"
                 onClick={handleEmailSubmit}
                 disabled={isLoading}
               >
@@ -203,9 +209,11 @@ export function StartTrialModal({
             </>
           ) : (
             <>
-              <div className="flex items-start gap-3 rounded-xl border border-crimson/20 bg-crimson/5 p-4 mb-4">
-                <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-crimson/20">
-                  <Lock className="h-3 w-3 text-crimson" />
+              <div className="absolute right-0 top-0 h-32 w-32 translate-x-16 translate-y-[-40px] rounded-full bg-ruby/5 blur-3xl" />
+              <div className="absolute bottom-0 left-0 h-32 w-32 translate-x-[-16px] translate-y-16 rounded-full bg-ruby/5 blur-3xl" />
+              <div className="flex items-start gap-3 rounded-xl border border-ruby/30 bg-ruby/10 p-4 mb-4">
+                <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ruby/30">
+                  <Lock className="h-3 w-3 text-ruby" />
                 </div>
                 <div className="flex-1">
                   <p className="text-xs leading-relaxed text-muted-foreground mb-2">
@@ -223,8 +231,37 @@ export function StartTrialModal({
                 options={{
                   clientSecret,
                   appearance: {
-                    theme: 'night',
-                    variables: { colorPrimary: '#e11d48', colorBackground: '#1e0a0f', colorText: '#fafafa' }
+                    theme: 'stripe',
+                    variables: {
+                      colorPrimary: "#d10034",
+                      colorBackground: "#ffffff",
+                      colorText: "#1a1a1a",
+                      colorDanger: "#df1b41",
+                      fontFamily: "General Sans, system-ui, sans-serif",
+                      spacingUnit: "4px",
+                      borderRadius: "12px",
+                    },
+                    rules: {
+                      ".Input": {
+                        border: "1px solid #e5e5e5",
+                        boxShadow: "none",
+                      },
+                      ".Input:focus": {
+                        border: "1px solid #d10034",
+                        boxShadow: "0 0 0 1px #d10034",
+                      },
+                      ".Tab": {
+                        border: "1px solid #e5e5e5",
+                      },
+                      ".Tab--selected": {
+                        borderColor: "#d10034",
+                        backgroundColor: "rgba(209, 0, 52, 0.05)",
+                      },
+                      ".Label": {
+                        fontWeight: "600",
+                        color: "#1a1a1a",
+                      },
+                    },
                   }
                 }}
               >

@@ -17,7 +17,7 @@ function TrialBanner({ onNavigate }: { onNavigate: (page: string) => void }) {
   return (
     <div
       data-ocid="app.trial_banner"
-      className="relative flex items-center justify-between gap-3 bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light px-5 py-3 text-xs font-bold uppercase tracking-widest text-background shadow-crimson-sm z-50"
+      className="relative flex items-center justify-between gap-3 bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light px-5 py-3 text-[11px] font-bold uppercase tracking-[0.2em] text-white shadow-ruby-sm z-50"
     >
       <div className="flex items-center gap-2">
         <Crown className="h-4 w-4" />
@@ -79,7 +79,7 @@ function AppInner() {
         toastOptions={{
           classNames: {
             toast: "border-border/40 bg-card text-foreground rounded-xl shadow-xl backdrop-blur-md",
-            success: "border-crimson/30 bg-crimson/5 text-foreground",
+            success: "border-ruby/30 bg-ruby/5 text-ruby-dark",
             error: "border-destructive/30 bg-destructive/5",
           },
         }}

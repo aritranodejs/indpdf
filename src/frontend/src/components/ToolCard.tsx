@@ -78,7 +78,7 @@ const ICON_COLOR: Record<string, string> = {
   Optimize: "text-emerald-400",
   Security: "text-rose-400",
   Edit: "text-amber-400",
-  Advanced: "text-crimson",
+  Advanced: "text-ruby",
 };
 
 const ICON_RING: Record<string, string> = {
@@ -87,14 +87,14 @@ const ICON_RING: Record<string, string> = {
   Optimize: "ring-emerald-400/20 bg-emerald-400/8",
   Security: "ring-rose-400/20  bg-rose-400/8",
   Edit: "ring-amber-400/20  bg-amber-400/8",
-  Advanced: "ring-crimson/20       bg-crimson/8",
+  Advanced: "ring-ruby/20       bg-ruby/5",
 };
 
 export function ToolCard({ tool, index, onClick }: ToolCardProps) {
   const IconComponent = ICON_COMPONENTS[tool.iconName] || File;
   const isPremium = tool.tier === "premium";
-  const iconColor = ICON_COLOR[tool.category] || "text-crimson";
-  const iconRing = ICON_RING[tool.category] || "ring-crimson/20 bg-crimson/8";
+  const iconColor = ICON_COLOR[tool.category] || "text-ruby";
+  const iconRing = ICON_RING[tool.category] || "ring-ruby/20 bg-ruby/5";
 
   return (
     <button
@@ -107,16 +107,16 @@ export function ToolCard({ tool, index, onClick }: ToolCardProps) {
         /* subtle top-surface gloss */
         "[background-image:linear-gradient(to_bottom,oklch(0.35_0.03_340/0.3)_0%,transparent_60%)] " +
         "transition duration-300 " +
-        "hover:-translate-y-[5px] hover:border-crimson/40 " +
+        "hover:-translate-y-[5px] hover:border-ruby/40 " +
         "hover:shadow-card-hover " +
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson/50"
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ruby/50"
       }
     >
       {/* Premium badge only — Free is the default, not worth labelling */}
       {isPremium && (
-        <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full border border-crimson/20 bg-crimson/10 px-2.5 py-0.5">
-          <Crown className="h-2.5 w-2.5 text-crimson" />
-          <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-crimson">
+        <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full border border-ruby/20 bg-ruby/5 px-2.5 py-0.5">
+          <Crown className="h-2.5 w-2.5 text-ruby" />
+          <span className="text-[9px] font-bold uppercase tracking-[0.15em] text-ruby">
             Pro
           </span>
         </div>
@@ -140,7 +140,7 @@ export function ToolCard({ tool, index, onClick }: ToolCardProps) {
       </p>
 
       {/* Hover CTA — fades in smoothly */}
-      <div className="mt-4 flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-crimson/0 transition duration-200 group-hover:text-crimson/80">
+      <div className="mt-4 flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-ruby/0 transition duration-200 group-hover:text-ruby/80">
         <span>Use Tool</span>
         <span className="transition-transform duration-300 group-hover:translate-x-1">
           →

@@ -27,7 +27,7 @@ function OptionSection({
 }: { title: string; children: React.ReactNode }) {
   return (
     <div className="rounded-xl border border-border/50 bg-card p-5">
-      <h3 className="mb-4 font-display text-sm font-bold uppercase tracking-widest text-gold/70">
+      <h3 className="mb-4 font-display text-sm font-bold uppercase tracking-widest text-ruby/70">
         {title}
       </h3>
       <div className="space-y-4">{children}</div>
@@ -169,7 +169,7 @@ function CompressOptions({
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <span className="text-sm text-muted-foreground">Quality</span>
-          <Badge variant="outline" className="border-gold/30 text-gold">
+          <Badge variant="outline" className="border-ruby/30 text-ruby">
             {label}
           </Badge>
         </div>
@@ -179,7 +179,7 @@ function CompressOptions({
           min={10}
           max={100}
           step={5}
-          className="[&>span]:bg-gold [&>span]:shadow-gold-sm"
+          className="[&>span]:bg-ruby [&>span]:shadow-ruby-sm"
         />
         <div className="flex justify-between text-xs text-muted-foreground">
           <span>Smaller file</span>
@@ -211,11 +211,10 @@ function RotateOptions({
             type="button"
             key={deg}
             onClick={() => setSelected(deg)}
-            className={`rounded-lg border px-3 py-2 text-sm font-medium transition ${
-              selected === deg
-                ? "border-gold/40 bg-gold/10 text-gold"
-                : "border-border/60 bg-secondary/30 text-muted-foreground hover:border-gold/30 hover:bg-gold/5 hover:text-gold"
-            }`}
+            className={`rounded-lg border px-3 py-2 text-sm font-medium transition ${selected === deg
+              ? "border-ruby/40 bg-ruby/10 text-ruby-dark"
+              : "border-border/60 bg-secondary/30 text-muted-foreground hover:border-ruby/30 hover:bg-ruby/5 hover:text-ruby"
+              }`}
           >
             {deg}°
           </button>
@@ -226,7 +225,7 @@ function RotateOptions({
           id="all-pages"
           checked={allPages}
           onCheckedChange={(v) => setAllPages(!!v)}
-          className="border-gold/30 data-[state=checked]:border-gold data-[state=checked]:bg-gold"
+          className="border-ruby/30 data-[state=checked]:border-ruby data-[state=checked]:bg-ruby"
         />
         <Label htmlFor="all-pages" className="text-sm text-muted-foreground">
           Apply to all pages
@@ -277,7 +276,7 @@ function WatermarkOptions({
           min={8}
           max={72}
           step={2}
-          className="[&>span]:bg-gold"
+          className="[&>span]:bg-ruby"
         />
       </div>
       <div className="space-y-2">
@@ -291,7 +290,7 @@ function WatermarkOptions({
           min={5}
           max={100}
           step={5}
-          className="[&>span]:bg-gold"
+          className="[&>span]:bg-ruby"
         />
       </div>
       <div>
@@ -355,7 +354,7 @@ function ProtectOptions({
             <div key={perm} className="flex items-center gap-2">
               <Checkbox
                 id={perm}
-                className="border-gold/30 data-[state=checked]:border-gold data-[state=checked]:bg-gold"
+                className="border-ruby/30 data-[state=checked]:border-ruby data-[state=checked]:bg-ruby"
               />
               <Label htmlFor={perm} className="text-sm text-muted-foreground">
                 {perm}
@@ -537,8 +536,8 @@ function ConvertOptions({
   return (
     <OptionSection title="Output Format">
       <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gold/10">
-          <span className="text-xs font-bold text-gold">
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-ruby/10">
+          <span className="text-xs font-bold text-ruby">
             {format.split("/")[0].trim()}
           </span>
         </div>
@@ -564,7 +563,7 @@ function ReorderOptions({
     "bg-blue-500/30",
     "bg-violet-500/30",
     "bg-emerald-500/30",
-    "bg-gold/30",
+    "bg-ruby/30",
     "bg-rose-500/30",
     "bg-teal-500/30",
   ];
@@ -608,17 +607,17 @@ export function ToolOptions({
     return <CompressOptions onOptionsChange={onOptionsChange} />;
   if (slug === "rotate-pdf")
     return <RotateOptions onOptionsChange={onOptionsChange} />;
-  if (slug === "watermark-pdf")
+  if (slug === "add-watermark")
     return <WatermarkOptions onOptionsChange={onOptionsChange} />;
   if (slug === "protect-pdf")
     return <ProtectOptions onOptionsChange={onOptionsChange} />;
   if (slug === "unlock-pdf")
     return <UnlockOptions onOptionsChange={onOptionsChange} />;
-  if (slug === "page-numbers")
+  if (slug === "add-page-numbers")
     return <PageNumberOptions onOptionsChange={onOptionsChange} />;
   if (slug === "edit-metadata")
     return <MetadataOptions onOptionsChange={onOptionsChange} />;
-  if (slug === "reorder-pdf")
+  if (slug === "reorder-pages")
     return <ReorderOptions onOptionsChange={onOptionsChange} />;
   if (
     slug === "pdf-to-word" ||

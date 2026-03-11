@@ -138,7 +138,7 @@ export async function processPdf(
     return pdfBlob(bytes, "compressed.pdf");
   }
 
-  if (slug === "watermark-pdf") {
+  if (slug === "add-watermark") {
     const buf = await readFileAsArrayBuffer(files[0]);
     const doc = await PDFDocument.load(buf);
     const font = await doc.embedFont(StandardFonts.HelveticaBold);
@@ -244,7 +244,7 @@ export async function processPdf(
     return pdfBlob(bytes, "images.pdf");
   }
 
-  if (slug === "reorder-pdf") {
+  if (slug === "reorder-pages") {
     const buf = await readFileAsArrayBuffer(files[0]);
     const doc = await PDFDocument.load(buf);
     const totalPages = doc.getPageCount();
@@ -258,7 +258,7 @@ export async function processPdf(
     return pdfBlob(bytes, "reordered.pdf");
   }
 
-  if (slug === "page-numbers") {
+  if (slug === "add-page-numbers") {
     const buf = await readFileAsArrayBuffer(files[0]);
     const doc = await PDFDocument.load(buf);
     const font = await doc.embedFont(StandardFonts.Helvetica);

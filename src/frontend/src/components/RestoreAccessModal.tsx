@@ -47,8 +47,8 @@ export function RestoreAccessModal({ open, onClose }: RestoreAccessModalProps) {
       >
         <DialogHeader>
           <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gold/10">
-              <KeyRound className="h-4 w-4 text-gold" />
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-ruby/10">
+              <KeyRound className="h-5 w-5 text-ruby" />
             </div>
             <div>
               <DialogTitle className="text-base font-black text-foreground">
@@ -71,7 +71,7 @@ export function RestoreAccessModal({ open, onClose }: RestoreAccessModalProps) {
               setEmail(e.target.value);
               setStatus("idle");
             }}
-            className="border-border/60 bg-background/50 focus-visible:border-gold/40 focus-visible:ring-gold/20"
+            className="border-border/60 bg-background/50 focus-visible:border-ruby/40 focus-visible:ring-ruby/20"
           />
 
           {status === "success" && (
@@ -95,7 +95,7 @@ export function RestoreAccessModal({ open, onClose }: RestoreAccessModalProps) {
             <Button
               type="button"
               data-ocid="restore.submit_button"
-              className="flex-1 rounded-xl bg-gradient-to-r from-gold-dark via-gold to-gold-light font-bold text-background shadow-gold-sm"
+              className="flex-1 rounded-xl bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light font-bold text-white shadow-ruby-sm"
               onClick={handleRestore}
             >
               Restore Access

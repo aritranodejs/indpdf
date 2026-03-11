@@ -25,9 +25,9 @@ const WHY_FEATURES = [
     title: "Genuinely Generous Free Tier",
     description:
       "20+ tools available completely free. No file size limits, no watermarks, no count restrictions.",
-    color: "text-crimson",
-    bg: "bg-crimson/10",
-    border: "border-crimson/15",
+    color: "text-ruby",
+    bg: "bg-ruby/10",
+    border: "border-ruby/15",
   },
   {
     icon: ShieldCheck,
@@ -53,11 +53,11 @@ const WHY_FEATURES = [
 function Eyebrow({ children }: { children: string }) {
   return (
     <div className="mb-4 flex items-center justify-center gap-3">
-      <span className="h-px w-5 bg-crimson/30" />
-      <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-crimson/60">
+      <span className="h-px w-5 bg-ruby/20" />
+      <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-ruby/70">
         {children}
       </span>
-      <span className="h-px w-5 bg-crimson/30" />
+      <span className="h-px w-5 bg-ruby/20" />
     </div>
   );
 }
@@ -92,12 +92,12 @@ export function HomePage({ onNavigate }: HomePageProps) {
       <section className="relative overflow-hidden px-4 pb-24 pt-28">
         {/* Multi-layer atmospheric depth */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          {/* Central crimson bloom — the anchor of the luxury atmosphere */}
+          {/* Central ruby bloom — the anchor of the luxury atmosphere */}
           <div
             className="animate-hero-bloom absolute left-1/2 top-[-100px] h-[600px] w-[600px] -translate-x-1/2 rounded-full"
             style={{
               background:
-                "radial-gradient(ellipse at center, oklch(0.72 0.24 25 / 0.2) 0%, oklch(0.72 0.24 25 / 0.08) 45%, transparent 75%)",
+                "radial-gradient(ellipse at center, oklch(0.55 0.22 25 / 0.08) 0%, oklch(0.55 0.22 25 / 0.03) 45%, transparent 75%)",
             }}
           />
           {/* Secondary ambient left-cool */}
@@ -116,21 +116,21 @@ export function HomePage({ onNavigate }: HomePageProps) {
                 "radial-gradient(ellipse, oklch(68 0.10 55 / 0.10) 0%, transparent 70%)",
             }}
           />
-          {/* Thin horizontal crimson hairline */}
+          {/* Thin horizontal ruby hairline */}
           <div
             className="absolute left-1/2 top-[140px] h-px w-64 -translate-x-1/2"
             style={{
               background:
-                "linear-gradient(90deg, transparent, oklch(0.72 0.24 25 / 0.4), transparent)",
+                "linear-gradient(90deg, transparent, oklch(0.55 0.22 25 / 0.2), transparent)",
             }}
           />
         </div>
 
         <div className="relative mx-auto max-w-4xl text-center">
           {/* Pill badge */}
-          <div className="animate-reveal-up mb-8 inline-flex items-center gap-2 rounded-full border border-crimson/20 bg-crimson/5 px-5 py-2">
-            <span className="h-1.5 w-1.5 animate-crimson-pulse rounded-full bg-crimson" />
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-crimson">
+          <div className="animate-reveal-up mb-8 inline-flex items-center gap-2 rounded-full border border-ruby/20 bg-ruby/5 px-5 py-2">
+            <span className="h-1.5 w-1.5 animate-ruby-pulse rounded-full bg-ruby" />
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-ruby">
               The Luxury Standard for PDF
             </span>
           </div>
@@ -156,7 +156,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
             <Button
               type="button"
               size="lg"
-              className="group gap-2 rounded-full bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light px-10 py-7 text-sm font-bold uppercase tracking-wider text-background shadow-crimson transition-all hover:scale-105 hover:shadow-crimson-sm"
+              className="group gap-2 rounded-full bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light px-10 py-7 text-sm font-bold uppercase tracking-wider text-white shadow-ruby transition-all hover:scale-105 hover:shadow-ruby-sm"
               onClick={() =>
                 document
                   .getElementById("tools-section")
@@ -170,7 +170,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               type="button"
               size="lg"
               variant="outline"
-              className="gap-2 rounded-full border-border/40 px-10 py-7 text-sm font-bold uppercase tracking-wider text-foreground transition-all hover:border-crimson/40 hover:bg-crimson/5"
+              className="gap-2 rounded-full border-border/40 px-10 py-7 text-sm font-bold uppercase tracking-wider text-foreground transition-all hover:border-ruby/40 hover:bg-ruby/5"
               onClick={() => onNavigate("pricing")}
             >
               Membership
@@ -186,9 +186,9 @@ export function HomePage({ onNavigate }: HomePageProps) {
             ].map(({ label, value }) => (
               <div
                 key={label}
-                className="card-surface group flex flex-col items-center justify-center rounded-2xl border border-border/30 px-8 py-5 transition-all duration-500 hover:border-crimson/30"
+                className="card-surface group flex flex-col items-center justify-center rounded-2xl border border-border/20 px-8 py-5 transition-all duration-500 hover:border-ruby/30"
               >
-                <span className="font-display text-2xl font-black leading-none text-crimson transition-transform group-hover:scale-110">
+                <span className="font-display text-2xl font-black leading-none text-ruby transition-transform group-hover:scale-110">
                   {value}
                 </span>
                 <span className="mt-1 text-[11px] font-bold uppercase tracking-widest text-muted-foreground/60">
@@ -228,7 +228,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
                   key={cat}
                   value={cat}
                   data-ocid="home.category.tab"
-                  className="rounded-full border border-border/30 bg-card/40 px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-muted-foreground transition-all duration-300 data-[state=active]:border-crimson/40 data-[state=active]:bg-crimson/10 data-[state=active]:text-crimson hover:bg-crimson/5"
+                  className="rounded-full border border-border/20 bg-white/40 px-6 py-2.5 text-xs font-bold uppercase tracking-widest text-muted-foreground transition-all duration-300 data-[state=active]:border-ruby/40 data-[state=active]:bg-ruby/10 data-[state=active]:text-ruby-dark hover:bg-ruby/5"
                 >
                   {cat}
                 </TabsTrigger>
@@ -281,7 +281,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               return (
                 <div
                   key={feat.title}
-                  className="card-surface group rounded-2xl border border-border/30 p-8 transition-all duration-500 hover:-translate-y-2 hover:border-crimson/30 hover:shadow-crimson-sm"
+                  className="card-surface group rounded-2xl border border-border/20 p-8 transition-all duration-500 hover:-translate-y-2 hover:border-ruby/30 hover:shadow-ruby-sm"
                 >
                   <div
                     className={`${feat.bg} ${feat.color} ${feat.border} mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}
@@ -343,7 +343,7 @@ export function HomePage({ onNavigate }: HomePageProps) {
               <Button
                 type="button"
                 variant="outline"
-                className="w-full rounded-xl border-border/40 text-[11px] font-bold uppercase tracking-widest transition hover:border-crimson/40 hover:bg-crimson/5"
+                className="w-full rounded-xl border-border/40 text-[11px] font-bold uppercase tracking-widest transition hover:border-ruby/40 hover:bg-ruby/5"
                 onClick={() =>
                   document
                     .getElementById("tools-section")
@@ -355,17 +355,17 @@ export function HomePage({ onNavigate }: HomePageProps) {
             </div>
 
             {/* Premium */}
-            <div className="relative rounded-2xl border border-crimson/20 bg-gradient-to-br from-crimson/10 via-card to-card p-7 shadow-crimson-sm overflow-hidden animate-sweep">
+            <div className="relative rounded-2xl border border-ruby/20 bg-white p-7 shadow-ruby-sm overflow-hidden animate-sweep">
               <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-10">
-                <span className="rounded-full bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light px-5 py-1.5 text-[9px] font-bold uppercase tracking-[0.2em] text-background shadow-crimson-sm">
+                <span className="rounded-full bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light px-5 py-1.5 text-[9px] font-bold uppercase tracking-[0.2em] text-white shadow-ruby-sm">
                   ✦ Signature Tier
                 </span>
               </div>
               <div className="mb-7 mt-1">
-                <div className="mb-0.5 text-[10px] font-bold uppercase tracking-widest text-crimson/70">
+                <div className="mb-0.5 text-[10px] font-bold uppercase tracking-widest text-ruby/70">
                   Premium
                 </div>
-                <div className="font-display text-4xl font-black text-crimson">
+                <div className="font-display text-4xl font-black text-ruby-dark">
                   $9.99
                   <span className="ml-1 text-base font-normal text-muted-foreground">
                     /month
@@ -383,14 +383,14 @@ export function HomePage({ onNavigate }: HomePageProps) {
                     key={f}
                     className="flex items-center gap-2.5 text-sm text-muted-foreground"
                   >
-                    <CheckCircle2 className="h-4 w-4 shrink-0 text-crimson/60" />
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-ruby/60" />
                     {f}
                   </li>
                 ))}
               </ul>
               <Button
                 type="button"
-                className="w-full rounded-xl bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light py-6 text-xs font-bold uppercase tracking-widest text-background shadow-crimson transition-all hover:scale-[1.02] hover:shadow-crimson-sm"
+                className="w-full rounded-xl bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light py-6 text-xs font-bold uppercase tracking-widest text-white shadow-ruby transition-all hover:scale-[1.02] hover:shadow-ruby-sm"
                 onClick={() => onNavigate("pricing")}
               >
                 Go Premium

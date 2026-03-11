@@ -65,7 +65,7 @@ export function PricingPage({ onNavigate }: PricingPageProps) {
       <div className="mx-auto max-w-5xl">
         {/* Header */}
         <div className="mb-16 text-center">
-          <p className="mb-3 text-xs font-bold uppercase tracking-widest text-crimson-light/80">
+          <p className="mb-3 text-xs font-bold uppercase tracking-widest text-ruby/80">
             Pricing
           </p>
           <h1 className="mb-4 font-display text-4xl font-black text-foreground md:text-5xl">
@@ -81,9 +81,9 @@ export function PricingPage({ onNavigate }: PricingPageProps) {
         {isTrialing && (
           <div
             data-ocid="pricing.trial_banner"
-            className="mb-8 rounded-xl border border-crimson/30 bg-crimson/10 p-4 text-center"
+            className="mb-8 rounded-xl border border-ruby/20 bg-ruby/5 p-4 text-center"
           >
-            <p className="font-semibold text-crimson-light">
+            <p className="font-semibold text-ruby-dark">
               ✦ Free Trial Active — {daysLeftInTrial} day
               {daysLeftInTrial !== 1 ? "s" : ""} remaining
             </p>
@@ -132,7 +132,7 @@ export function PricingPage({ onNavigate }: PricingPageProps) {
               data-ocid="pricing.free_cta_button"
               variant="outline"
               size="lg"
-              className="w-full rounded-xl border-border/60 font-semibold transition hover:border-crimson/30 hover:bg-crimson/5"
+              className="w-full rounded-xl border-border/40 font-semibold transition hover:border-ruby/30 hover:bg-ruby/5"
               onClick={() => onNavigate("home")}
             >
               Start for Free
@@ -140,24 +140,24 @@ export function PricingPage({ onNavigate }: PricingPageProps) {
           </div>
 
           {/* Premium */}
-          <div className="relative flex flex-col rounded-2xl border border-crimson/30 bg-gradient-to-br from-crimson/10 via-transparent to-transparent p-8 shadow-crimson-sm">
+          <div className="relative flex flex-col rounded-2xl border border-ruby/20 bg-white p-8 shadow-ruby-sm">
             <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-              <div className="rounded-full bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light px-5 py-1.5 text-xs font-bold uppercase tracking-widest text-background shadow-crimson-sm">
+              <div className="rounded-full bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light px-5 py-1.5 text-xs font-bold uppercase tracking-widest text-white shadow-ruby-sm">
                 ✦ Most Popular
               </div>
             </div>
 
             <div className="mb-8 mt-2">
-              <div className="mb-1 text-sm font-bold uppercase tracking-widest text-crimson-light/70">
+              <div className="mb-1 text-sm font-bold uppercase tracking-widest text-ruby/70">
                 Premium
               </div>
               <div className="flex items-baseline gap-1">
-                <span className="font-display text-5xl font-black text-crimson-light">
+                <span className="font-display text-5xl font-black text-ruby-dark">
                   $9.99
                 </span>
                 <span className="text-sm text-muted-foreground">/month</span>
               </div>
-              <div className="text-sm text-crimson-light/80 font-medium">
+              <div className="text-sm text-ruby/80 font-medium">
                 7-day free trial, then $9.99/mo
               </div>
             </div>
@@ -165,8 +165,8 @@ export function PricingPage({ onNavigate }: PricingPageProps) {
             <ul className="mb-8 flex-1 space-y-3">
               {PREMIUM_FEATURES.map((f) => (
                 <li key={f} className="flex items-start gap-3">
-                  <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-crimson/15">
-                    <Check className="h-3 w-3 text-crimson-light" />
+                  <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-ruby/10">
+                    <Check className="h-3 w-3 text-ruby" />
                   </div>
                   <span className="text-sm text-muted-foreground">{f}</span>
                 </li>
@@ -177,7 +177,7 @@ export function PricingPage({ onNavigate }: PricingPageProps) {
               <Button
                 data-ocid="pricing.premium_cta_button"
                 size="lg"
-                className="w-full rounded-xl bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light font-bold text-background shadow-crimson-sm"
+                className="w-full rounded-xl bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light font-bold text-white shadow-ruby-sm"
                 disabled
               >
                 <Crown className="mr-2 h-4 w-4" />
@@ -187,7 +187,7 @@ export function PricingPage({ onNavigate }: PricingPageProps) {
               <Button
                 data-ocid="pricing.premium_cta_button"
                 size="lg"
-                className="w-full rounded-xl bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light font-bold text-background shadow-crimson transition-all hover:shadow-crimson-sm"
+                className="w-full rounded-xl bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light font-bold text-white shadow-ruby transition-all hover:shadow-ruby-sm"
                 onClick={() => setTrialModalOpen(true)}
               >
                 <Crown className="mr-2 h-4 w-4" />
@@ -205,7 +205,7 @@ export function PricingPage({ onNavigate }: PricingPageProps) {
                 type="button"
                 data-ocid="pricing.restore_access_button"
                 onClick={() => setRestoreModalOpen(true)}
-                className="font-semibold text-crimson-light underline-offset-2 transition hover:underline"
+                className="font-semibold text-ruby underline-offset-2 transition hover:underline"
               >
                 Restore Access
               </button>
@@ -216,7 +216,7 @@ export function PricingPage({ onNavigate }: PricingPageProps) {
         {/* Premium Features Grid */}
         <div className="mt-20">
           <div className="mb-10 text-center">
-            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-crimson-light/70">
+            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-ruby/70">
               What Premium Unlocks
             </p>
             <h2 className="font-display text-2xl font-black text-foreground md:text-3xl">
@@ -227,10 +227,10 @@ export function PricingPage({ onNavigate }: PricingPageProps) {
             {ADVANCED_TOOLS.map((tool) => (
               <div
                 key={tool.label}
-                className="rounded-xl border border-crimson/15 bg-gradient-to-br from-crimson/5 to-transparent p-5"
+                className="rounded-xl border border-ruby/10 bg-white p-5"
               >
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-crimson/10">
-                  <tool.icon className="h-5 w-5 text-crimson-light" />
+                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-ruby/5">
+                  <tool.icon className="h-5 w-5 text-ruby" />
                 </div>
                 <h3 className="mb-1 font-display text-sm font-bold text-foreground">
                   {tool.label}
@@ -252,7 +252,7 @@ export function PricingPage({ onNavigate }: PricingPageProps) {
           </p>
           <Button
             variant="outline"
-            className="border-border/60 hover:border-crimson/30 hover:bg-crimson/5"
+            className="border-border/40 hover:border-ruby/30 hover:bg-ruby/5"
             onClick={() => onNavigate("home")}
           >
             Explore All Free Tools

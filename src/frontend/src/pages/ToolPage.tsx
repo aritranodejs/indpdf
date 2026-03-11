@@ -55,7 +55,7 @@ const BUTTON_LABELS: Record<string, string> = {
   "split-pdf": "Split PDF",
   "compress-pdf": "Compress PDF",
   "rotate-pdf": "Rotate Pages",
-  "watermark-pdf": "Add Watermark",
+  "add-watermark": "Add Watermark",
   "protect-pdf": "Protect PDF",
   "unlock-pdf": "Unlock PDF",
 };
@@ -123,7 +123,7 @@ function SignPdfTool() {
     ctx.beginPath();
     ctx.moveTo(lastPos.current?.x ?? pos.x, lastPos.current?.y ?? pos.y);
     ctx.lineTo(pos.x, pos.y);
-    ctx.strokeStyle = "rgba(114, 34, 46, 1)"; /* Crimson Signature Ink */
+    ctx.strokeStyle = "rgba(209, 0, 52, 1)"; /* Ruby Signature Ink */
     ctx.lineWidth = 3;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
@@ -158,7 +158,7 @@ function SignPdfTool() {
     if (!ctx) return null;
     ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, 400, 120);
-    ctx.fillStyle = "rgba(114, 34, 46, 1)";
+    ctx.fillStyle = "rgba(209, 0, 52, 1)";
     ctx.font = "italic 48px serif";
     ctx.textBaseline = "middle";
     ctx.fillText(typedName, 20, 60);
@@ -269,18 +269,18 @@ function SignPdfTool() {
             value={signMode}
             onValueChange={(v) => setSignMode(v as "draw" | "type")}
           >
-            <TabsList className="grid w-full grid-cols-2 rounded-xl bg-crimson/5 p-1 border border-crimson/10 shadow-inner">
+            <TabsList className="grid w-full grid-cols-2 rounded-xl bg-ruby/5 p-1 border border-ruby/10 shadow-inner">
               <TabsTrigger
                 data-ocid="sign.draw_tab"
                 value="draw"
-                className="rounded-lg py-2.5 text-xs font-bold uppercase tracking-widest text-muted-foreground transition-all duration-300 data-[state=active]:bg-crimson data-[state=active]:text-background data-[state=active]:shadow-crimson-sm"
+                className="rounded-lg py-2.5 text-xs font-bold uppercase tracking-widest text-muted-foreground transition-all duration-300 data-[state=active]:bg-ruby data-[state=active]:text-white data-[state=active]:shadow-ruby-sm"
               >
                 Draw Signature
               </TabsTrigger>
               <TabsTrigger
                 data-ocid="sign.type_tab"
                 value="type"
-                className="rounded-lg py-2.5 text-xs font-bold uppercase tracking-widest text-muted-foreground transition-all duration-300 data-[state=active]:bg-crimson data-[state=active]:text-background data-[state=active]:shadow-crimson-sm"
+                className="rounded-lg py-2.5 text-xs font-bold uppercase tracking-widest text-muted-foreground transition-all duration-300 data-[state=active]:bg-ruby data-[state=active]:text-white data-[state=active]:shadow-ruby-sm"
               >
                 Type Signature
               </TabsTrigger>
@@ -290,7 +290,7 @@ function SignPdfTool() {
               <p className="text-xs text-muted-foreground">
                 Draw your signature below:
               </p>
-              <div className="relative aspect-[4/1.5] w-full overflow-hidden rounded-xl border-2 border-dashed border-crimson/20 bg-white/5 backdrop-blur-sm transition-all hover:border-crimson/40">
+              <div className="relative aspect-[4/1.5] w-full overflow-hidden rounded-xl border-2 border-dashed border-ruby/20 bg-white/5 backdrop-blur-sm transition-all hover:border-ruby/40">
                 <canvas
                   ref={canvasRef}
                   data-ocid="sign.canvas_target"
@@ -337,7 +337,7 @@ function SignPdfTool() {
                       fontFamily: "serif",
                       fontStyle: "italic",
                       fontSize: "2rem",
-                      color: "#1a1a2e",
+                      color: "#d10034",
                     }}
                   >
                     {typedName}
@@ -390,7 +390,7 @@ function SignPdfTool() {
         type="button"
         data-ocid="sign.submit_button"
         size="lg"
-        className="w-full gap-2 rounded-xl bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light py-7 font-black uppercase tracking-[0.2em] text-background shadow-crimson transition-all hover:scale-[1.02] hover:shadow-crimson-sm disabled:opacity-50"
+        className="w-full gap-2 rounded-xl bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light py-7 font-black uppercase tracking-[0.2em] text-white shadow-ruby transition-all hover:scale-[1.02] hover:shadow-ruby-sm disabled:opacity-50"
         onClick={handleSign}
         disabled={files.length === 0}
       >
@@ -409,7 +409,7 @@ const ANNOTATION_COLORS: {
   hex: string;
   rgb: [number, number, number];
 }[] = [
-    { label: "Gold", hex: "#C9A84C", rgb: [0.788, 0.659, 0.298] },
+    { label: "Ruby", hex: "#d10034", rgb: [0.82, 0, 0.20] },
     { label: "Red", hex: "#e53e3e", rgb: [0.898, 0.243, 0.243] },
     { label: "Blue", hex: "#3182ce", rgb: [0.192, 0.51, 0.808] },
     { label: "Green", hex: "#38a169", rgb: [0.22, 0.631, 0.412] },
@@ -600,7 +600,7 @@ function AnnotatePdfTool() {
               step={1}
               value={[fontSize]}
               onValueChange={([v]) => setFontSize(v)}
-              className="[&_[role=slider]]:bg-gold"
+              className="[&_[role=slider]]:bg-ruby"
             />
           </div>
         </div>
@@ -610,7 +610,7 @@ function AnnotatePdfTool() {
         type="button"
         data-ocid="annotate.submit_button"
         size="lg"
-        className="w-full gap-2 rounded-xl bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light py-7 font-black uppercase tracking-[0.2em] text-background shadow-crimson transition-all hover:scale-[1.02] hover:shadow-crimson-sm disabled:opacity-50"
+        className="w-full gap-2 rounded-xl bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light py-7 font-black uppercase tracking-[0.2em] text-white shadow-ruby transition-all hover:scale-[1.02] hover:shadow-ruby-sm disabled:opacity-50"
         onClick={handleAnnotate}
         disabled={files.length === 0}
       >
@@ -683,7 +683,7 @@ function ComparePdfsTool() {
         y: height - 60,
         size: 20,
         font: boldFont,
-        color: rgb(0.447, 0.133, 0.18), /* Crimson */
+        color: rgb(0.82, 0, 0.20), /* Ruby */
       });
       page.drawText(`Generated: ${new Date().toLocaleDateString()}`, {
         x: 50,
@@ -727,7 +727,7 @@ function ComparePdfsTool() {
       for (const row of rows) {
         y -= 30;
         const differs = row.a !== row.b;
-        const color = differs ? rgb(0.788, 0.659, 0.298) : rgb(0.4, 0.4, 0.4);
+        const color = differs ? rgb(0.82, 0, 0.20) : rgb(0.4, 0.4, 0.4);
         page.drawText(row.label, {
           x: 50,
           y,
@@ -811,20 +811,20 @@ function ComparePdfsTool() {
                 <div
                   key={row.label}
                   data-ocid={`compare.row.${i + 1}`}
-                  className={`grid grid-cols-3 px-4 py-3 text-sm ${differs ? "bg-gold/5" : ""
+                  className={`grid grid-cols-3 px-4 py-3 text-sm ${differs ? "bg-ruby/5" : ""
                     }`}
                 >
                   <span className="font-medium text-muted-foreground">
                     {row.label}
                   </span>
                   <span
-                    className={`truncate ${differs ? "text-gold" : "text-foreground"
+                    className={`truncate ${differs ? "text-ruby font-bold" : "text-foreground"
                       }`}
                   >
                     {row.a}
                   </span>
                   <span
-                    className={`truncate ${differs ? "text-gold" : "text-foreground"
+                    className={`truncate ${differs ? "text-ruby font-bold" : "text-foreground"
                       }`}
                   >
                     {row.b}
@@ -840,7 +840,7 @@ function ComparePdfsTool() {
         type="button"
         data-ocid="compare.submit_button"
         size="lg"
-        className="w-full gap-2 rounded-xl bg-gradient-to-r from-gold-dark via-gold to-gold-light py-6 font-bold text-background shadow-gold-sm transition hover:shadow-gold disabled:opacity-50"
+        className="w-full gap-2 rounded-xl bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light py-6 font-bold text-white shadow-ruby-sm transition hover:shadow-ruby disabled:opacity-50"
         onClick={generateReport}
         disabled={!fileA || !fileB || isGenerating}
       >
@@ -946,13 +946,13 @@ export function ToolPage({ slug, onNavigate }: ToolPageProps) {
     <>
       <header className="relative overflow-hidden border-b border-border/40 bg-card/30 py-12 md:py-16">
         <div className="pointer-events-none absolute inset-0 -z-10">
-          <div className="absolute -left-20 -top-20 h-80 w-80 animate-liquid-drift rounded-full bg-crimson/5 blur-[100px]" />
-          <div className="absolute -right-20 -bottom-20 h-80 w-80 animate-liquid-drift rounded-full bg-crimson/5 blur-[100px] [animation-delay:2s]" />
+          <div className="absolute -left-20 -top-20 h-80 w-80 animate-liquid-drift rounded-full bg-ruby/5 blur-[100px]" />
+          <div className="absolute -right-20 -bottom-20 h-80 w-80 animate-liquid-drift rounded-full bg-ruby/5 blur-[100px] [animation-delay:2s]" />
         </div>
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
             <div className="flex-1 text-center md:text-left">
-              <div className="animate-reveal-up mb-4 inline-flex items-center gap-2 rounded-full border border-crimson/20 bg-crimson/10 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.25em] text-crimson shadow-sm">
+              <div className="animate-reveal-up mb-4 inline-flex items-center gap-2 rounded-full border border-ruby/20 bg-ruby/10 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.25em] text-ruby shadow-sm">
                 <Sparkles className="h-3.5 w-3.5" /> Signature Selection
               </div>
               <h1 className="animate-reveal-up font-display text-4xl font-black tracking-tight text-foreground [animation-delay:100ms] md:text-6xl">
@@ -965,7 +965,7 @@ export function ToolPage({ slug, onNavigate }: ToolPageProps) {
             <div className="animate-reveal-up flex flex-col items-center gap-4 [animation-delay:300ms] sm:flex-row">
               <Button
                 variant="outline"
-                className="h-12 rounded-2xl border-border/60 px-8 font-bold transition-all hover:border-crimson/30 hover:bg-crimson/5"
+                className="h-12 rounded-2xl border-border/60 px-8 font-bold transition-all hover:border-ruby/30 hover:bg-ruby/5 text-muted-foreground hover:text-foreground"
                 onClick={() => onNavigate("home")}
               >
                 Back to Suite
@@ -973,7 +973,7 @@ export function ToolPage({ slug, onNavigate }: ToolPageProps) {
             </div>
           </div>
         </div>
-      </header>
+      </header >
 
       <main className="container mx-auto px-4 py-12 md:py-24">
         <div className="mx-auto max-w-4xl">
@@ -982,7 +982,7 @@ export function ToolPage({ slug, onNavigate }: ToolPageProps) {
             <button
               type="button"
               onClick={() => onNavigate("home")}
-              className="transition hover:text-crimson"
+              className="transition hover:text-ruby"
             >
               Home
             </button>
@@ -990,25 +990,25 @@ export function ToolPage({ slug, onNavigate }: ToolPageProps) {
             <button
               type="button"
               onClick={() => onNavigate("home")}
-              className="transition hover:text-crimson"
+              className="transition hover:text-ruby"
             >
               {tool.category}
             </button>
             <span className="opacity-30">/</span>
-            <span className="text-crimson/80">{tool.name}</span>
+            <span className="text-ruby/80">{tool.name}</span>
           </nav>
 
           {/* Main Content Area */}
           <div className="animate-reveal-up [animation-delay:400ms]">
             {!isUnlocked ? (
-              <div className="relative overflow-hidden rounded-3xl border border-crimson/20 bg-card p-10 text-center shadow-2xl md:p-20">
+              <div className="relative overflow-hidden rounded-3xl border border-ruby/20 bg-white p-10 text-center shadow-2xl md:p-20">
                 <div className="pointer-events-none absolute inset-0 opacity-10 blur-3xl">
-                  <div className="absolute inset-0 bg-gradient-to-br from-crimson to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-ruby/20 to-transparent" />
                 </div>
-                
+
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="mb-8 flex animate-liquid-drift h-24 w-24 items-center justify-center rounded-[2rem] bg-crimson/10 shadow-crimson-sm ring-1 ring-crimson/20">
-                    <Crown className="h-12 w-12 text-crimson" />
+                  <div className="mb-8 flex animate-liquid-drift h-24 w-24 items-center justify-center rounded-[2rem] bg-ruby/10 shadow-ruby-sm ring-1 ring-ruby/20">
+                    <Crown className="h-12 w-12 text-ruby" />
                   </div>
                   <h2 className="mb-4 font-display text-4xl font-black tracking-tight text-foreground md:text-5xl">
                     Luxury Signature Feature
@@ -1016,12 +1016,12 @@ export function ToolPage({ slug, onNavigate }: ToolPageProps) {
                   <p className="mx-auto mb-12 max-w-xl text-lg font-medium leading-relaxed text-muted-foreground/80">
                     Experience the ultimate in document processing. <span className="text-foreground font-bold">{tool.name}</span> is a premium utility reserved for our signature members.
                   </p>
-                  
+
                   <div className="flex w-full flex-col items-center gap-4 sm:flex-row sm:justify-center">
                     <Button
                       type="button"
                       data-ocid="tool.upgrade_button"
-                      className="h-16 w-full gap-3 rounded-2xl bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light px-12 font-black uppercase tracking-[0.25em] text-background shadow-crimson transition-all hover:scale-105 sm:w-auto"
+                      className="h-16 w-full gap-3 rounded-2xl bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light px-12 font-black uppercase tracking-[0.25em] text-white shadow-ruby transition-all hover:scale-105 sm:w-auto"
                       onClick={() => onNavigate("pricing")}
                     >
                       <Sparkles className="h-5 w-5" />
@@ -1031,7 +1031,7 @@ export function ToolPage({ slug, onNavigate }: ToolPageProps) {
                       type="button"
                       data-ocid="tool.start_trial_button"
                       variant="outline"
-                      className="h-16 w-full rounded-2xl border-crimson/30 px-12 font-bold uppercase tracking-widest text-crimson hover:bg-crimson/5 sm:w-auto"
+                      className="h-16 w-full rounded-2xl border-ruby/30 px-12 font-bold uppercase tracking-widest text-ruby hover:bg-ruby/5 sm:w-auto"
                       onClick={() => setTrialModalOpen(true)}
                     >
                       Start Free Trial
@@ -1075,7 +1075,7 @@ export function ToolPage({ slug, onNavigate }: ToolPageProps) {
                     type="button"
                     data-ocid="tool.process_button"
                     size="lg"
-                    className="w-full gap-4 rounded-2xl bg-gradient-to-r from-crimson-dark via-crimson to-crimson-light py-8 font-black uppercase tracking-[0.3em] text-background shadow-crimson transition-all hover:scale-[1.01] hover:shadow-crimson-sm disabled:opacity-50"
+                    className="w-full gap-4 rounded-2xl bg-gradient-to-r from-ruby-dark via-ruby to-ruby-light py-8 font-black uppercase tracking-[0.3em] text-white shadow-ruby transition-all hover:scale-[1.01] hover:shadow-ruby-sm disabled:opacity-50"
                     onClick={handleProcess}
                     disabled={files.length === 0}
                   >
@@ -1105,4 +1105,4 @@ export function ToolPage({ slug, onNavigate }: ToolPageProps) {
       />
     </>
   );
-  }
+}
